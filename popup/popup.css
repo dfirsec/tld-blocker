@@ -1,0 +1,23 @@
+body {
+    font-family: sans-serif;
+
+}
+
+#pop-content {
+    width: 600px;
+}
+
+.title {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.item {
+    display: flex;
+    margin: 5px 0px;
+}
+
+.item .name {
+    width: 150px;
+    padding: 5px;
+}
