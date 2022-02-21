@@ -10,12 +10,8 @@ let blockedTLDs = [
   "casa",
   "cc",
   "cf",
-  "cloud",
   "cn",
   "cyou",
-  "digital",
-  "email",
-  "finance",
   "fun",
   "gq",
   "host",
@@ -25,14 +21,11 @@ let blockedTLDs = [
   "ir",
   "ke",
   "link",
-  "live",
   "lk",
   "ml",
-  "monster",
   "ng",
   "np",
   "one",
-  "online",
   "pe",
   "pk",
   "quest",
@@ -40,8 +33,6 @@ let blockedTLDs = [
   "ru",
   "sa",
   "sbs",
-  "shop",
-  "site",
   "store",
   "su",
   "support",
@@ -57,8 +48,12 @@ let blockedTLDs = [
   "xyz",
 ];
 
+function onError(error) {
+  console.log(error)
+}
+
 // Set the default list.
-browser.runtime.onInstalled.addListener(details => {
+browser.runtime.onInstalled.addListener(() => {
   browser.storage.local.set({
     blockedTLDs: blockedTLDs
   });
@@ -76,19 +71,23 @@ browser.storage.onChanged.addListener(changeData => {
   blockedTLDs = changeData.blockedTLDs.newValue;
 });
 
-// Listen for a request to open a webpage and pass to handleRequest function
+function handleRequest(requestDetails) {
+  // Grab the web address of the page to be visited
+  const url = new URL(requestDetails.url);
+
+  const hostname = new URL(requestDetails.url).hostname;
+
+  // Determine if TLD is in the blocked list and cancel request if true
+  if (blockedTLDs.indexOf(url.hostname.split(".").pop()) != -1) {
+    browser.storage.local.set({ [hostname]: hostname });
+    console.log(`TLD Blocked: ${url.host}`);
+    return { cancel: true };
+  }
+}
+
+// Listen for a request to a web address and pass to handleRequest function
 browser.webRequest.onBeforeRequest.addListener(
   handleRequest,
   { urls: ["<all_urls>"] },
   ["blocking"]
 );
-
-function handleRequest(requestDetails) {
-  // Grab the web address of the page to be visited
-  const url = new URL(requestDetails.url);
-
-  // Determine if TLD is in the blocked list and cancel request if true
-  if (blockedTLDs.indexOf(url.hostname.split(".").pop()) != -1) {
-    return { cancel: true };
-  }
-}
