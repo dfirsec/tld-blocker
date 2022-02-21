@@ -8,7 +8,7 @@ Prevent browser from accessing specific Top-Level Domains (TLDs).
 ### About
 TLD Blocker cancels a web request if web address contains a blocked Top-Level Domain (TLD). The the Add-on's "Options" tab contains a list of pre-populated TLDs. TLD Blocker's "Options" tab contains a list of pre-populated TLDs. This list can be modified for specific needs.
 
-The requirement for "Access your data for all websites" is is only used to monitor and intercept web requests.  Session data is not stored.
+The requirement for "Access your data for all websites" is only used to monitor and intercept web requests.
 
 #### List of blocked TLDs
 
