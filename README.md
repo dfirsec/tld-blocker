@@ -8,7 +8,7 @@ Prevent browser from accessing specific Top-Level Domains (TLDs).
 ### About
 TLD Blocker cancels a web request if web address contains a blocked-specified Top-Level Domain (TLD). TLD Blocker's "Options" tab contains the list of pre-populated TLDs. This list can be modified for specific needs.
 
-The requirement for "Access your data for all websites" is only used to monitor and intercept web requests.
+The requirement for "Access your data for all websites" is only used to monitor and intercept and block web requests.
 
 #### List of blocked TLDs
 
@@ -26,12 +26,8 @@ blockedTLDs = [
   "casa",
   "cc",
   "cf",
-  "cloud",
   "cn",
   "cyou",
-  "digital",
-  "email",
-  "finance",
   "fun",
   "gq",
   "host",
@@ -41,14 +37,11 @@ blockedTLDs = [
   "ir",
   "ke",
   "link",
-  "live",
   "lk",
   "ml",
-  "monster",
   "ng",
   "np",
   "one",
-  "online",
   "pe",
   "pk",
   "quest",
@@ -56,8 +49,6 @@ blockedTLDs = [
   "ru",
   "sa",
   "sbs",
-  "shop",
-  "site",
   "store",
   "su",
   "support",
