@@ -1,4 +1,4 @@
-## Experimental Firefox Add-on 
+## Firefox Add-on
 
 ### Description
 Prevent browser from accessing specific Top-Level Domains (TLDs).
