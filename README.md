@@ -3,7 +3,7 @@
 ### Description
 Prevent browser from accessing specific Top-Level Domains (TLDs).
 
-[TLD Blocker Add-on](https://addons.mozilla.org/en-US/firefox/addon/tld-blocker/)
+🔗 [TLD Blocker Add-on](https://addons.mozilla.org/en-US/firefox/addon/tld-blocker/)
 
 ### About
 TLD Blocker cancels a web request if web address contains a blocked Top-Level Domain (TLD). The the Add-on's "Options" tab contains a list of pre-populated TLDs. TLD Blocker's "Options" tab contains a list of pre-populated TLDs. This list can be modified for specific needs.
