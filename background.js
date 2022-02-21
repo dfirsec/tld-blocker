@@ -1,4 +1,4 @@
-// List of blocked TLDs
+// List of blocked TLDs.
 let blockedTLDs = [
   "ba",
   "bar",
@@ -66,18 +66,17 @@ browser.storage.local.get(data => {
   }
 });
 
-// Monitor for changes to the blocked list
+// Monitor for changes to the blocked list.
 browser.storage.onChanged.addListener(changeData => {
   blockedTLDs = changeData.blockedTLDs.newValue;
 });
 
 function handleRequest(requestDetails) {
-  // Grab the web address of the page to be visited
+  // Grab the web address and hostname of the page to be visited.
   const url = new URL(requestDetails.url);
-
   const hostname = new URL(requestDetails.url).hostname;
 
-  // Determine if TLD is in the blocked list and cancel request if true
+  // Determine if TLD is in the blocked list and cancel request if true.
   if (blockedTLDs.indexOf(url.hostname.split(".").pop()) != -1) {
     browser.storage.local.set({ [hostname]: hostname });
     console.log(`TLD Blocked: ${url.host}`);
@@ -85,7 +84,7 @@ function handleRequest(requestDetails) {
   }
 }
 
-// Listen for a request to a web address and pass to handleRequest function
+// Listen for a request to a web address and pass to handleRequest function.
 browser.webRequest.onBeforeRequest.addListener(
   handleRequest,
   { urls: ["<all_urls>"] },

@@ -22,7 +22,6 @@ browser.storage.local.get().then(function (result) {
     let line = document.getElementById('blocked_' + (i + 1));
     if (i < results.length & line !== null) {
       line.getElementsByClassName('domain')[0].textContent = results[i].site;
-
     }
   }
 });
